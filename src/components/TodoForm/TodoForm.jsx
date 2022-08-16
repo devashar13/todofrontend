@@ -14,7 +14,7 @@ function TodoForm({ addTodo }) {
   };
 
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form className= "todo" onSubmit={handleSubmit}>
       <Form.Group>
         <Form.Label>
           <b>Add Todo</b>
