@@ -8,7 +8,7 @@ function TodoForm({ addTodo }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!todoValue & !todoValue) return;
-    addTodo({ todo: todoValue, description: todoDescription });
+    addTodo({ title: todoValue, description: todoDescription });
     setTodoValue("");
     setTodoDescription("");
   };
