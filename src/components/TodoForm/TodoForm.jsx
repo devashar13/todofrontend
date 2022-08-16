@@ -1,14 +1,16 @@
 import React from "react";
-import { Button,Form } from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
 
-function TodoForm() {
-  const [value, setValue] = React.useState("");
+function TodoForm({ addTodo }) {
+  const [todoValue, setTodoValue] = React.useState("");
+  const [todoDescription, setTodoDescription] = React.useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!value) return;
-    addTodo(value);
-    setValue("");
+    if (!todoValue & !todoValue) return;
+    addTodo({ todo: todoValue, description: todoDescription });
+    setTodoValue("");
+    setTodoDescription("");
   };
 
   return (
@@ -20,9 +22,17 @@ function TodoForm() {
         <Form.Control
           type="text"
           className="input"
-          value={value}
-          onChange={(e) => setValue(e.target.value)}
+          value={todoValue}
+          onChange={(e) => setTodoValue(e.target.value)}
           placeholder="Add new todo"
+        />
+        {/* todo description */}
+        <Form.Control
+          type="text"
+          className="input mt-2"
+          value={todoDescription}
+          onChange={(e) => setTodoDescription(e.target.value)}
+          placeholder="Add description"
         />
       </Form.Group>
       <Button variant="primary mt-3 mb-3" type="submit">
