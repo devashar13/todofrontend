@@ -4,4 +4,7 @@
     background-color: floralwhite;
   }
 
-
+.box-div{
+  max-height: calc(100vh - 50vh);
+  overflow-y: scroll;
+}

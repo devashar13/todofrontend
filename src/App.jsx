@@ -19,13 +19,15 @@ function App() {
 
   const addTodo = (text) => {
     try {
+        console.log(text.title);
       axios
         .post("http://localhost:8081/todos/create", {
-          title: text.todo,
-          description: text.description,
+          title: text.title,
+          description: text.description
         })
         .then((res) => console.log(res.data));
-      setTodos([...todos, text]);
+
+      setTodos([text,...todos]);
     } catch (err) {
       console.log(err);
     }
@@ -35,10 +37,10 @@ function App() {
       <div className="container">
         <h1 className="text-center mb-4">Todo List</h1>
         <TodoForm addTodo={addTodo} />
-        <div>
+        <div className="box-div">
           {todos.length > 0 &&
             todos.map((todo, index) => (
-              <Card>
+              <Card className="mt-3">
                 <Card.Body>
                   <Todo todo={todo} />
                 </Card.Body>
